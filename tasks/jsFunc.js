@@ -1,6 +1,6 @@
-const { src, dest, series, watch, lastRun, parallel } = require('gulp');
+const { src, dest, series, watch, lastRun, parallel } = require("gulp");
 
-const config = require('./../config.json');
+const config = require("./../config.json");
 const project = config.project;
 const root = config.root;
 const sftpcon = config.sftp;
@@ -8,19 +8,19 @@ const ftp = config.ftp;
 const taskswitch = config.taskswitch;
 const jsStyle = config.jsStyle;
 
-const babel = require('gulp-babel');
-const concat = require('gulp-concat');
-const rename = require('gulp-rename');
-const plumber = require('gulp-plumber');
-const uglify = require('gulp-uglify');
-const changed = require('gulp-changed');
-const gulpif = require('gulp-if');
+const babel = require("gulp-babel");
+const concat = require("gulp-concat");
+const rename = require("gulp-rename");
+const plumber = require("gulp-plumber");
+const uglify = require("gulp-uglify");
+const changed = require("gulp-changed");
+const gulpif = require("gulp-if");
 
 // const sftp = require('gulp-sftp-up4');
-const vftp = require('vinyl-ftp');
+const vftp = require("vinyl-ftp");
 const conn = vftp.create(ftp);
 
-const sftp = require('gulp-ssh');
+const sftp = require("gulp-ssh");
 const sftpconfig = {
   host: sftpcon.host,
   username: sftpcon.user,
@@ -39,7 +39,7 @@ const ftpSwitch = taskswitch.ftp,
 // js圧縮タスク  *********************
 
 function jsMin() {
-  return src(root.projectDir + project.jssrcDir + '/**/*.js')
+  return src(root.projectDir + project.jssrcDir + "/**/*.js")
     .pipe(changed(root.changeDir + project.jssrcDir))
     .pipe(dest(root.changeDir + project.jssrcDir))
     .pipe(plumber())
@@ -47,7 +47,7 @@ function jsMin() {
       gulpif(
         jses6,
         babel({
-          presets: ['@babel/preset-env'],
+          presets: ["@babel/preset-env"],
         })
       )
     )
@@ -55,7 +55,7 @@ function jsMin() {
     .pipe(uglify())
     .pipe(
       rename({
-        suffix: '.min',
+        suffix: ".min",
       })
     )
     .pipe(dest(root.projectDir + project.jsdstDir))
@@ -64,7 +64,7 @@ function jsMin() {
 }
 
 function jsMinSftp() {
-  return src(root.projectDir + project.jssrcDir + '/**/*.js')
+  return src(root.projectDir + project.jssrcDir + "/**/*.js")
     .pipe(changed(root.changeDir + project.jssrcDir))
     .pipe(dest(root.changeDir + project.jssrcDir))
     .pipe(plumber())
@@ -72,7 +72,7 @@ function jsMinSftp() {
       gulpif(
         jses6,
         babel({
-          presets: ['@babel/preset-env'],
+          presets: ["@babel/preset-env"],
         })
       )
     )
@@ -80,7 +80,7 @@ function jsMinSftp() {
     .pipe(uglify())
     .pipe(
       rename({
-        suffix: '.min',
+        suffix: ".min",
       })
     )
     .pipe(dest(root.projectDir + project.jsdstDir))
@@ -89,19 +89,19 @@ function jsMinSftp() {
 }
 
 function jsFtp() {
-  return src(root.projectDir + project.jssrcDir + '/**/*.js')
+  return src(root.projectDir + project.jssrcDir + "/**/*.js")
     .pipe(changed(root.changeDir + project.jssrcDir))
     .pipe(conn.dest(root.uploadDir + project.jssrcDir));
 }
 function jsSftp() {
-  return src(root.projectDir + project.jssrcDir + '/**/*.js')
+  return src(root.projectDir + project.jssrcDir + "/**/*.js")
     .pipe(changed(root.changeDir + project.jssrcDir))
     .pipe(gulpSSH.dest(root.uploadDir + project.jssrcDir));
 }
 
 function jsMigrate() {
-  return src(root.projectDir + project.jsconcatDir + '/**/*.js')
-    .pipe(dest(root.changeDir + project.jsconcatDir))
+  return src(root.projectDir + project.jsintegrateDir + "/**/*.js")
+    .pipe(dest(root.changeDir + project.jsintegrateDir))
     .pipe(plumber())
     .pipe(concat(integrateFile))
     .pipe(dest(root.projectDir + project.jssrcDir))
@@ -109,22 +109,22 @@ function jsMigrate() {
 }
 
 function jsMigrateFtp() {
-  return src(root.projectDir + project.jsconcatDir + '/**/*.js')
-    .pipe(changed(root.changeDir + project.jsconcatDir))
-    .pipe(dest(root.changeDir + project.jsconcatDir))
-    .pipe(conn.dest(root.uploadDir + project.jsconcatDir));
+  return src(root.projectDir + project.jsintegrateDir + "/**/*.js")
+    .pipe(changed(root.changeDir + project.jsintegrateDir))
+    .pipe(dest(root.changeDir + project.jsintegrateDir))
+    .pipe(conn.dest(root.uploadDir + project.jsintegrateDir));
 }
 
 function jsMigratSftp() {
-  return src(root.projectDir + project.jsconcatDir + '/**/*.js')
-    .pipe(changed(root.changeDir + project.jsconcatDir))
-    .pipe(dest(root.changeDir + project.jsconcatDir))
-    .pipe(gulpSSH.dest(root.uploadDir + project.jsconcatDir));
+  return src(root.projectDir + project.jsintegrateDir + "/**/*.js")
+    .pipe(changed(root.changeDir + project.jsintegrateDir))
+    .pipe(dest(root.changeDir + project.jsintegrateDir))
+    .pipe(gulpSSH.dest(root.uploadDir + project.jsintegrateDir));
 }
 
 function jsAfterMigrateSftp() {
-  return src(root.projectDir + project.jsconcatDir + '/**/*.js')
-    .pipe(dest(root.changeDir + project.jsconcatDir))
+  return src(root.projectDir + project.jsintegrateDir + "/**/*.js")
+    .pipe(dest(root.changeDir + project.jsintegrateDir))
     .pipe(plumber())
     .pipe(concat(integrateFile))
     .pipe(dest(root.projectDir + project.jssrcDir))

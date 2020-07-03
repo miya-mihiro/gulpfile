@@ -20,21 +20,22 @@
 
 ### config.json の設定方法
 
-- **taskswitch:**・・・どのタスクを実行するかを切り替える（`true` / `false`）
-- **sassStyle:**・・・sass のコンパイル方法
-- **jsStyle:**・・・es6 を使う場合は`true`にする
-- **root：**
+- **taskswitch**・・・どのタスクを実行するかを切り替える（`true` / `false`）
+- **sassStyle**・・・sass のコンパイル方法
+- **jsStyle**・・・es6 を使う場合は`true`にする
+- **root**
   - projectDir・・・gulp を動かす起点のディレクトリ
   - uploadDir・・・アップロードするディレクトリ（ftp/sftp）
   - changeDir・・・ファイルの差分を検知するためのディレクトリ
-- **browser：**・・・ローカル環境の起点
-- **project:**・・・それぞれのディレクトリ名 / ファイル名の設定
-  例）sass
+- **browser**・・・ローカル環境の起点
+- **project**・・・それぞれのディレクトリ名 / ファイル名の設定
 
-  ```
-  base.projectDir + project.sasssrcDir 　//・・・コンパイル前ファイル
-  base.projectDir + project.sassdstDir 　//・・・コンパイル後ファイル
-  ```
+例）sass
+
+```
+base.projectDir + project.sasssrcDir 　//・・・コンパイル前ファイル
+base.projectDir + project.sassdstDir 　//・・・コンパイル後ファイル
+```
 
 - **ftp / sftp:**・・・FTP / SFTP 情報（上記タスク後に自動でアップロードする場合）
 

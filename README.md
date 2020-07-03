@@ -12,11 +12,14 @@
 - **ftp**・・・上記タスクの後、FTP でサーバーにアップする
 - **localHost**・・・ローカル環境も gulp で立ち上げる
 
+
 ### ファイルの作りについて
 
 - `config.json`・・・・どのタスクを動かすかや、FTP 情報やディレクトリの設定をするファイル
 - `gulpfile.js`・・・・Gulp のタスクをまとめたファイル
 - `tasks/...js`・・・・それぞれのタスクを種類ごとに書いてあるファイル
+
+
 
 ### config.json の設定方法
 
@@ -29,15 +32,13 @@
   - changeDir・・・ファイルの差分を検知するためのディレクトリ
 - **browser**・・・ローカル環境の起点
 - **project**・・・それぞれのディレクトリ名 / ファイル名の設定
+- **ftp / sftp:**・・・FTP / SFTP 情報（上記タスク後に自動でアップロードする場合）
 
-例）sass
-
+例）sass  
 ```
 base.projectDir + project.sasssrcDir 　//・・・コンパイル前ファイル
 base.projectDir + project.sassdstDir 　//・・・コンパイル後ファイル
 ```
-
-- **ftp / sftp:**・・・FTP / SFTP 情報（上記タスク後に自動でアップロードする場合）
 
 ### ファイル初期値の構造
 
@@ -94,9 +95,7 @@ npx gulp //・・・タスクランナーの実行
 
 ### 注意事項
 
-- **compass の動作は保証できない...!!!**
-  そもそも gulp を導入している人で compass を使う人があんまりいない？？記事出てこない...最低限、とりあえず動くようにしている感じです。（どうしても compass 派の人は sassFunc.js を編集してください。。）
-
-そして、「脱 Compass」的な記事が 2〜3 年前から結構出ていたので、参考までに
-
-- [compass から libsass へ。gulp の設定を見直して大幅速度 UP！](https://www.okushin.co.jp/kodanuki_note/2017/10/compass%E3%81%8B%E3%82%89libsass%E3%81%B8%E3%80%82gulp%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E8%A6%8B%E7%9B%B4%E3%81%97%E3%81%A6%E5%A4%A7%E5%B9%85%E9%80%9F%E5%BA%A6up%EF%BC%81.html)
+- **compass の動作は保証できない...!!!**  
+  そもそも gulp を導入している人で compass を使う人があんまりいない？？記事出てこない...最低限、とりあえず動くようにしている感じです。（どうしても compass 派の人は sassFunc.js を編集してください。。）  
+  そして、「脱 Compass」的な記事が 2〜3 年前から結構出ていたので、参考までに  
+  >  [compass から libsass へ。gulp の設定を見直して大幅速度 UP！](https://www.okushin.co.jp/kodanuki_note/2017/10/compass%E3%81%8B%E3%82%89libsass%E3%81%B8%E3%80%82gulp%E3%81%AE%E8%A8%AD%E5%AE%9A%E3%82%92%E8%A6%8B%E7%9B%B4%E3%81%97%E3%81%A6%E5%A4%A7%E5%B9%85%E9%80%9F%E5%BA%A6up%EF%BC%81.html)

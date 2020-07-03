@@ -1,0 +1,57 @@
+{
+  "root": {
+    "projectDir": "./../",
+    "uploadDir": "./public_html/sftptest/",
+    "changeDir": "./../changedfiles/"
+  },
+  "browser": {
+    "root": "./../html/"
+  },
+  "ftp": {
+    "host": "",
+    "user": "",
+    "password": "",
+    "parallel": 3
+  },
+  "sftp": {
+    "host": "",
+    "user": "",
+    "pass": "",
+    "port": ""
+  },
+  "project": {
+    "imgsrcDir": "images/src",
+    "imgdstDir": "images",
+    "jssrcDir": "js/src",
+    "jsdstDir": "js",
+    "jsconcatDir": "js/concat",
+    "jsintegrateDir": "js/concat",
+    "integrateFile": "scripts.js",
+    "jses6Dir": "js/strict",
+    "sasssrcDir": "sass",
+    "sassdstDir": "css",
+    "compassDir": "",
+    "beforepurgeDir": "css_beforepurge",
+    "configfile": "config.rb",
+    "purgeContentFiles": "**/*.php"
+  },
+  "taskswitch": {
+    "img": true,
+    "sass": true,
+    "jsmin": true,
+    "jsintegrate": true,
+    "sftp": false,
+    "ftp": false,
+    "localHost": false,
+    "pug": true,
+    "csspurge": false
+  },
+  "sassStyle": {
+    "sassexp": false,
+    "sassmin": true,
+    "sassCompass": false
+  },
+  "jsStyle": {
+    "jses6": false
+  }
+}

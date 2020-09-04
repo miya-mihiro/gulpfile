@@ -8,7 +8,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.0",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "^2.26.12",
     "graceful-fs": "^4.2.3",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",

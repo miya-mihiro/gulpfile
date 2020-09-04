@@ -1,45 +1,11 @@
 {
-  "taskswitch": {
-    "img": true,
-    "sass": true,
-    "jsmin": true,
-    "jsintegrate": true,
-    "sftp": false,
-    "ftp": false,
-    "localHost": false,
-    "pug": true,
-    "csspurge": false
-  },
-  "sassStyle": {
-    "sassexp": false,
-    "sassmin": true,
-    "sassCompass": false
-  },
-  "jsStyle": {
-    "jses6": false
-  },
   "root": {
-    "projectDir": "./../",
-    "uploadDir": "./public_html/sftptest/",
+    "projectDir": "./../html/",
+    "uploadDir": "./",
     "changeDir": "./../changedfiles/"
   },
   "browser": {
     "root": "./../html/"
-  },
-  "project": {
-    "imgsrcDir": "images/src",
-    "imgdstDir": "images",
-    "jssrcDir": "js/src",
-    "jsdstDir": "js",
-    "jsintegrateDir": "js/concat",
-    "integrateFile": "scripts.js",
-    "jses6Dir": "js/strict",
-    "sasssrcDir": "sass",
-    "sassdstDir": "css",
-    "compassDir": "",
-    "beforepurgeDir": "css_beforepurge",
-    "configfile": "config.rb",
-    "purgeContentFiles": "**/*.php"
   },
   "ftp": {
     "host": "",
@@ -52,5 +18,41 @@
     "user": "",
     "pass": "",
     "port": ""
+  },
+  "project": {
+    "imgsrcDir": "src/images",
+    "imgdstDir": "images",
+    "jssrcDir": "src/js/src",
+    "jsdstDir": "js",
+    "jsconcatDir": "src/js/integrate",
+    "integrateFile": "scripts.js",
+    "jses6Dir": "src/js/strict",
+    "sasssrcDir": "src/sass",
+    "sassdstDir": "css",
+    "compassDir": "",
+    "beforepurgeDir": "css_beforepurge",
+    "configfile": "config.rb",
+    "purgeContentFiles": "**/*.php",
+    "pugsrcDir": "src",
+    "pugdstDir": ""
+  },
+  "taskswitch": {
+    "img": true,
+    "sass": true,
+    "jsmin": true,
+    "jsintegrate": true,
+    "sftp": false,
+    "ftp": false,
+    "localHost": true,
+    "pug": true,
+    "csspurge": true
+  },
+  "sassStyle": {
+    "sassexp": false,
+    "sassmin": true,
+    "sassCompass": false
+  },
+  "jsStyle": {
+    "jses6": true
   }
 }

@@ -44,7 +44,7 @@ const options = {
 };
 
 function pugFunc() {
-  return src(root.projectDir + "/**/*.pug")
+  return src(root.projectDir + project.pugsrcDir + "/**/*.pug")
     .pipe(changed(root.changeDir))
     .pipe(plumber())
     .pipe(pug(options))
@@ -53,18 +53,18 @@ function pugFunc() {
         extname: ".php", //phpファイルとして書き出し
       })
     )
-    .pipe(dest(root.projectDir))
-    .pipe(dest(root.changeDir))
+    .pipe(dest(root.projectDir + project.pugdstDir))
+    .pipe(dest(root.changeDir + project.pugdstDir))
     .pipe(gulpif(ftpSwitch, conn.dest(root.uploadDir)));
 }
 
 function pugFuncSftp() {
-  return src(root.projectDir + "/**/*.pug")
+  return src(root.projectDir + project.pugsrcDir + "/**/*.pug")
     .pipe(changed(root.changeDir))
     .pipe(plumber())
     .pipe(pug(options))
-    .pipe(dest(root.projectDir))
-    .pipe(dest(root.changeDir))
+    .pipe(dest(root.projectDir + project.pugdstDir))
+    .pipe(dest(root.changeDir + project.pugdstDir))
     .pipe(gulpSSH.dest(root.uploadDir));
 }
 

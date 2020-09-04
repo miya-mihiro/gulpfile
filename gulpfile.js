@@ -104,7 +104,7 @@ function watchTasks(done) {
       }
       if (taskswitch.jsintegrate) {
         watch(
-          root.projectDir + project.jsintegrateDir + "/**/*.js",
+          root.projectDir + project.jsconcatDir + "/**/*.js",
           series(jsMigrate, browserReload)
         );
       }
@@ -147,7 +147,7 @@ function watchTasks(done) {
       }
       if (taskswitch.jsintegrate) {
         watch(
-          root.projectDir + project.jsintegrateDir + "/**/*.js",
+          root.projectDir + project.jsconcatDir + "/**/*.js",
           parallel(jsMigrate, jsAfterMigrateSftp)
         );
       }
@@ -186,7 +186,7 @@ function watchTasks(done) {
       }
       if (taskswitch.jsintegrate) {
         watch(
-          root.projectDir + project.jsintegrateDir + "/**/*.js",
+          root.projectDir + project.jsconcatDir + "/**/*.js",
           parallel(jsMigrate, jsMigrateFtp)
         );
       }
@@ -216,7 +216,7 @@ function watchTasks(done) {
       }
       if (taskswitch.jsintegrate) {
         watch(
-          root.projectDir + project.jsintegrateDir + "/**/*.js",
+          root.projectDir + project.jsconcatDir + "/**/*.js",
           series(jsMigrate, browserReload)
         );
       }

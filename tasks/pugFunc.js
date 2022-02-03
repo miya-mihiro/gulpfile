@@ -44,7 +44,7 @@ const options = {
 };
 
 function pugFunc() {
-  return src(root.projectDir + project.pugsrcDir + "/**/*.pug")
+  return src(root.projectDir + project.pugsrcDir + "/*.pug")
     .pipe(changed(root.changeDir))
     .pipe(plumber())
     .pipe(pug(options))
@@ -59,7 +59,7 @@ function pugFunc() {
 }
 
 function pugFuncSftp() {
-  return src(root.projectDir + project.pugsrcDir + "/**/*.pug")
+  return src(root.projectDir + project.pugsrcDir + "/*.pug")
     .pipe(changed(root.changeDir))
     .pipe(plumber())
     .pipe(pug(options))

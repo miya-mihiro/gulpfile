@@ -1,7 +1,7 @@
 {
   "root": {
     "projectDir": "./../html/",
-    "uploadDir": "./",
+    "uploadDir": "./html/",
     "changeDir": "./../changedfiles/"
   },
   "browser": {
@@ -17,36 +17,29 @@
     "host": "",
     "user": "",
     "pass": "",
-    "port": ""
+    "port": "10397"
   },
   "project": {
     "imgsrcDir": "src/images",
     "imgdstDir": "images",
-    "jssrcDir": "src/js/src",
+    "jssrcDir": "src/js",
     "jsdstDir": "js",
-    "jsconcatDir": "src/js/integrate",
-    "integrateFile": "scripts.js",
-    "jses6Dir": "src/js/strict",
     "sasssrcDir": "src/sass",
     "sassdstDir": "css",
-    "compassDir": "",
-    "beforepurgeDir": "css_beforepurge",
-    "configfile": "config.rb",
-    "purgeContentFiles": "**/*.php",
     "pugsrcDir": "src",
     "pugdstDir": ""
   },
   "taskswitch": {
-    "img": true,
+    "img": false,
     "sass": true,
     "jsmin": true,
-    "jsintegrate": true,
+    "jsintegrate": false,
     "sftp": false,
     "ftp": false,
     "localHost": true,
-    "pug": true,
-    "csspurge": true
+    "pug": false
   },
+
   "sassStyle": {
     "sassexp": false,
     "sassmin": true,

@@ -1,8 +1,8 @@
-const config = require('./../config.json');
+const config = require("./../config.json");
 const browser = config.browser;
 
-var browserSync = require('browser-sync');
-var connect = require('gulp-connect-php');
+var browserSync = require("browser-sync");
+var connect = require("gulp-connect-php");
 
 function browsersync(done) {
   connect.server(
@@ -11,9 +11,9 @@ function browsersync(done) {
       base: browser.root,
       livereload: true,
     },
-    function() {
+    function () {
       browserSync({
-        proxy: 'localhost:8001',
+        proxy: "localhost:8001",
       });
     }
   );
@@ -23,7 +23,7 @@ function browsersync(done) {
 function browserReload(done) {
   browserSync.reload();
   done();
-  console.info('Browser reload completed');
+  console.info("Browser reload completed");
 }
 
 exports.browsersync = browsersync;
